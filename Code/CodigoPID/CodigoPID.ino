@@ -26,7 +26,7 @@ const double lowerGap = 8; //lower gap in cm
 const double columnL = 60; //effective length of the tube in cm
 
 //Reference
-#define PREV_REF 80;
+#define PREV_REF 85;
 double previousRef = PREV_REF; // the initial desired reference is PREV_REF [%] of the effective length of the tube
 const double ballDiam = 4; //diameter of the ball in cm
 const int maxWaitTime = (int) (columnL * 3.5 / 0.034); //maximal waiting time for the ultrasonic sensors to receive the reflected wave
