@@ -26,7 +26,7 @@ const double lowerGap = 8; //lower gap in cm
 const double columnL = 60; //effective length of the tube in cm
 
 //Reference
-#define PREV_REF 85;
+#define PREV_REF 100;
 double previousRef = PREV_REF; // the initial desired reference is PREV_REF [%] of the effective length of the tube
 const double ballDiam = 4; //diameter of the ball in cm
 const int maxWaitTime = (int) (columnL * 3.5 / 0.034); //maximal waiting time for the ultrasonic sensors to receive the reflected wave
@@ -216,7 +216,7 @@ void loop() {
     flagA = flagA + 1;
     if (flagA == 3) {
       ref = (storeHandPos[0] + storeHandPos[1] + storeHandPos[2]) / 3; //calculates the average
-      if ((ref < 21) || (ref > 105) || flagRefErr) ref = 100 ; //previousRef if want to mantain previous ref, 100 for max power
+      if ((ref < 21) || (ref > 100) || flagRefErr) ref = 100 ; //previousRef if want to mantain previous ref, 100 for max power
       flagRefErr = false;
       previousRef = ref; //stores previous value of ref in memory for next block of 3 iterations
       flagA = 0; //resets the counter for calculating the average of reference
@@ -267,7 +267,7 @@ void loop() {
     else
     {
       motorPower(fanPin, control); //Control voltage sent to motor
-      previousBallPos = ballPos; //stores prevouos value of ref in memory for next iteration
+      previousBallPos = ballPos; //stores previous value of ref in memory for next iteration
       flag = flag + 1;
     }
 
@@ -287,12 +287,12 @@ void loop() {
       t1 = millis();
       t2 = millis();
       t3 = t2 - t1;
-      Serial.print("Posición pelota: ");
+      // Serial.print("Posición pelota: ");
       Serial.println(ballPos);
-      Serial.print("Posición mano: ");
-      Serial.println(ref);
-      Serial.print("Control: ");
-      Serial.println(control);
+      //Serial.print("Posición mano: ");
+      //Serial.println(ref);
+      //Serial.print("Control: ");
+      //Serial.println(control);
 
       flag = 0;
     }
