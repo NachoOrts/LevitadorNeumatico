@@ -216,7 +216,7 @@ void loop() {
     flagA = flagA + 1;
     if (flagA == 3) {
       ref = (storeHandPos[0] + storeHandPos[1] + storeHandPos[2]) / 3; //calculates the average
-      if ((ref < 21) || (ref > 90) || flagRefErr) ref = previousRef ; //previousRef if want to mantain previous ref, 100 for max power
+      if ((ref < 21) || (ref > 90) || flagRefErr) ref = 100 ; //previousRef if want to mantain previous ref, 100 for max power
       flagRefErr = false;
       previousRef = ref; //stores previous value of ref in memory for next block of 3 iterations
       flagA = 0; //resets the counter for calculating the average of reference
